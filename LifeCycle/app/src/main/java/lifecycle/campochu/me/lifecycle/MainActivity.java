@@ -8,19 +8,13 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String LOG_TAG = "A";
+    private static final String LOG_TAG = "A   |";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.i(LOG_TAG,"onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.textview).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, EmptyActivity.class));
-            }
-        });
     }
 
     @Override

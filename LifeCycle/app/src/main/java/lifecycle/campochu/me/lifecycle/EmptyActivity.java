@@ -6,7 +6,7 @@ import android.util.Log;
 
 public class EmptyActivity extends AppCompatActivity {
 
-    private static final String LOG_TAG = "B";
+    private static final String LOG_TAG = "B   |";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
