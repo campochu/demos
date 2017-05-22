@@ -18,6 +18,7 @@ public interface Section {
     int FACTROY = 0;
 
     int ITEM_1 = 1 << SPAN_SHIFT | SPAN2;
+    int ITEM_2 = 2 << SPAN_SHIFT | SPAN3;
 
     int getSectionType();
 
