@@ -21,4 +21,5 @@ public class SectionListView extends RecyclerView {
     public SectionListView(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
+    
 }

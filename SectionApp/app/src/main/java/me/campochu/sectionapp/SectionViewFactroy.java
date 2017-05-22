@@ -8,7 +8,7 @@ import android.view.ViewGroup;
  * ckb on 2017/5/21.
  */
 
-public abstract class SectionViewFactroy {
+public abstract class SectionViewFactroy implements Section {
 
     protected LayoutInflater mInflater;
 
@@ -16,8 +16,16 @@ public abstract class SectionViewFactroy {
         mInflater = LayoutInflater.from(context);
     }
 
-    public abstract SectionItemView create(int section, ViewGroup viewGroup);
+    public final SectionItemView create(int section) {
+        return createImpl(mInflater, section);
+    }
 
-    public abstract int getSpan(int section);
+    protected abstract SectionItemView createImpl(LayoutInflater inflater, int section);
 
+    protected abstract int getSpan(int section);
+
+    @Override
+    public int getSectionType() {
+        return FACTROY;
+    }
 }

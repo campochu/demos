@@ -6,13 +6,19 @@ package me.campochu.sectionapp;
 
 public interface Section {
 
-    public static final int SPAN_SHIFT = 3;
-    public static final int SPAN_MASK = 7;
-    public static final int SPAN1 = 1;
-    public static final int SPAN2 = 2;
-    public static final int SPAN3 = 3;
-    public static final int SPAN4 = 4;
-    public static final int SPAN5 = 5;
-    public static final int SPAN6 = 6;
+    int SPAN_SHIFT = 3;
+    int SPAN_MASK = 7;
+    int SPAN1 = 1;
+    int SPAN2 = 2;
+    int SPAN3 = 3;
+    int SPAN4 = 4;
+    int SPAN5 = 5;
+    int SPAN6 = 6;
+
+    int FACTROY = 0;
+
+    int ITEM_1 = 1 << SPAN_SHIFT | SPAN2;
+
+    int getSectionType();
 
 }
