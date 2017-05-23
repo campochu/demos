@@ -11,7 +11,7 @@ import android.view.ViewGroup;
  */
 
 public abstract class SectionItemView<T extends Section>
-    extends RecyclerView.ViewHolder implements Section, OnClickListener {
+        extends RecyclerView.ViewHolder implements Section, OnClickListener {
 
     public static final int CLICK_ITEM = 0;
 
@@ -23,12 +23,12 @@ public abstract class SectionItemView<T extends Section>
         super(itemView);
     }
 
-    public final void update(T model) {
+    public final void update(T model, int position) {
         mViewModle = model;
-        updateImpl(model);
+        updateImpl(model, position);
     }
 
-    protected abstract void updateImpl(T model);
+    protected abstract void updateImpl(T model, int position);
 
     public final T getModel() {
         return mViewModle;

@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import me.campochu.sectionapp.R;
 import me.campochu.sectionapp.SectionItemView;
 import me.campochu.sectionapp.model.Item2;
@@ -21,13 +22,13 @@ public class Item2SectionItemView extends SectionItemView<Item2> {
     public Item2SectionItemView(View itemView) {
         super(itemView);
 
-        mHelloView = (TextView)itemView.findViewById(R.id.hello2);
+        mHelloView = (TextView) itemView.findViewById(R.id.hello2);
 
         mHelloView.setOnClickListener(this);
     }
 
     @Override
-    protected void updateImpl(Item2 model) {
+    protected void updateImpl(Item2 model, int position) {
         mHelloView.setText(model.getHello());
     }
 

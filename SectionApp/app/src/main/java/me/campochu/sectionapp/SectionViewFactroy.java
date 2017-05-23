@@ -16,11 +16,11 @@ public abstract class SectionViewFactroy implements Section {
         mInflater = LayoutInflater.from(context);
     }
 
-    public final SectionItemView create(int section) {
-        return createImpl(mInflater, section);
+    public final SectionItemView create(int section, ViewGroup parent) {
+        return createImpl(section, parent);
     }
 
-    protected abstract SectionItemView createImpl(LayoutInflater inflater, int section);
+    protected abstract SectionItemView createImpl(int section, ViewGroup parent);
 
     protected abstract int getSpan(int section);
 

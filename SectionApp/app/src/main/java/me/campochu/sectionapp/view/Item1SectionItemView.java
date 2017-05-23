@@ -27,7 +27,7 @@ public class Item1SectionItemView extends SectionItemView<Item1> {
     }
 
     @Override
-    protected void updateImpl(Item1 model) {
+    protected void updateImpl(Item1 model, int position) {
         mHelloView.setText(model.getHello());
     }
 

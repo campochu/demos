@@ -1,15 +1,15 @@
 package me.campochu.sectionapp.activity;
 
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.GridLayoutManager.SpanSizeLookup;
+import android.view.ViewGroup;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.GridLayoutManager.SpanSizeLookup;
-import android.view.LayoutInflater;
-import android.widget.Toast;
 import me.campochu.sectionapp.R;
 import me.campochu.sectionapp.Section;
 import me.campochu.sectionapp.SectionAdapter;
@@ -37,34 +37,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mDemoList = (SectionListView)findViewById(R.id.demo_list);
+        mDemoList = (SectionListView) findViewById(R.id.demo_list);
         mAdapter = new SectionAdapter(new SectionViewFactroy(MainActivity.this) {
             @Override
-            protected SectionItemView createImpl(LayoutInflater inflater, int section) {
+            protected SectionItemView createImpl(int section, ViewGroup parent) {
                 SectionItemView sectionItemView = null;
 
                 switch (section) {
                     case ITEM_1: {
-                        sectionItemView = Item1SectionItemView.CREATOR.create(inflater, mDemoList);
+                        sectionItemView = Item1SectionItemView.CREATOR.create(mInflater, parent);
                         sectionItemView.setSectionListener(new SectionListener<Item1>() {
                             @Override
                             public void onClickListener(int flag, Item1 model) {
                                 if (flag == CLICK_HELLO) {
                                     Toast.makeText(MainActivity.this, model.getHello() + "类型 Item1 ",
-                                        Toast.LENGTH_SHORT).show();
+                                            Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
                         break;
                     }
                     case ITEM_2: {
-                        sectionItemView = Item2SectionItemView.CREATOR.create(inflater, mDemoList);
+                        sectionItemView = Item2SectionItemView.CREATOR.create(mInflater, parent);
                         sectionItemView.setSectionListener(new SectionListener<Item2>() {
                             @Override
                             public void onClickListener(int flag, Item2 model) {
                                 if (flag == CLICK_HELLO) {
                                     Toast.makeText(MainActivity.this, model.getHello() + "类型 Item2 ",
-                                        Toast.LENGTH_SHORT).show();
+                                            Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

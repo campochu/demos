@@ -1,11 +1,11 @@
 package me.campochu.sectionapp;
 
+import android.support.v7.widget.RecyclerView;
+import android.view.ViewGroup;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import android.support.v7.widget.RecyclerView;
-import android.view.ViewGroup;
 
 /**
  * ckb on 2017/5/21.
@@ -36,13 +36,14 @@ public class SectionAdapter extends RecyclerView.Adapter {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return mViewFactroy.create(viewType);
+        return mViewFactroy.create(viewType, parent);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof SectionItemView) {
-            ((SectionItemView)holder).update(mItems.get(position));
+        Section model = mItems.get(position);
+        if (model != null && holder instanceof SectionItemView) {
+            ((SectionItemView) holder).update(model, position);
         }
     }
 
