@@ -5,12 +5,97 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <TextView
-        android:id="@+id/textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Hello EmptyActivity!"
-        android:textSize="20sp"/>
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@android:color/holo_purple"/>
+
+    <lifecycle.campochu.me.lifecycle.view.CategoryPairLayout
+        android:id="@+id/hahaha"
+        android:layout_width="240dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:padding="2px">
+
+        <TextView
+            android:id="@+id/xixixi"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:background="@android:color/white"
+            android:text="哈哈哈哈1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/white"
+            android:text="哈哈哈哈2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@android:color/white"
+            android:text="哈哈哈哈3"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@android:color/white"
+            android:text="哈哈哈哈4"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@android:color/white"
+            android:text="哈哈哈哈4"/>
+
+
+    </lifecycle.campochu.me.lifecycle.view.CategoryPairLayout>
+
+    <lifecycle.campochu.me.lifecycle.view.MyLinearLayout
+        android:id="@+id/houou"
+        android:layout_width="240dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="200dp"
+        android:orientation="vertical"
+        android:padding="2px">
+
+        <TextView
+            android:id="@+id/xixidsaxi"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@android:color/white"
+            android:text="哈哈哈哈1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/white"
+            android:text="哈哈哈哈2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@android:color/white"
+            android:text="哈哈哈哈3"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@android:color/white"
+            android:text="哈哈哈哈4"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@android:color/white"
+            android:text="哈哈哈哈4"/>
+
+
+    </lifecycle.campochu.me.lifecycle.view.MyLinearLayout>
 
 </FrameLayout>

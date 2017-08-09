@@ -2,14 +2,17 @@ package lifecycle.campochu.me.lifecycle;
 
 import android.app.Fragment;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
+import android.os.Debug;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.ViewManager;
+import lifecycle.campochu.me.lifecycle.view.CategoryPairLayout;
 
 /**
  * Created by ckb on 17/5/8.
@@ -18,6 +21,8 @@ import android.view.ViewGroup;
 public class ChildFragment extends Fragment {
 
     private static final String LOG_TAG = "A--F|";
+
+    private CategoryPairLayout mLayout;
 
     @Override
     public void onAttach(Context context) {
@@ -35,6 +40,7 @@ public class ChildFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.i(LOG_TAG, "onCreateView");
+
         return inflater.inflate(R.layout.fragment_child, container);
     }
 
@@ -42,12 +48,23 @@ public class ChildFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         Log.i(LOG_TAG, "onViewCreated");
 
-        view.findViewById(R.id.textview).setOnClickListener(new View.OnClickListener() {
+        mLayout = (CategoryPairLayout)view.findViewById(R.id.hahaha);
+        mLayout.setDividerWidth(2);
+        mLayout.requestLayout();
+
+        view.findViewById(R.id.xixixi).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), EmptyActivity.class));
+                ((ViewManager)v.getParent()).removeView(v);
+                mLayout.requestLayout();
             }
         });
+        //view.findViewById(R.id.textview).setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+        //        startActivity(new Intent(getActivity(), EmptyActivity.class));
+        //    }
+        //});
 
         super.onViewCreated(view, savedInstanceState);
     }
