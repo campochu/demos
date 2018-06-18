@@ -1,0 +1,81 @@
+
+struct asyncer_t {
+    bool done;
+    pthread_t pid;
+    pthread_cond_t *cond;
+    pthread_mutex_t *mutex;
+};
+
+struct asyncer_t *asyncer_init();
+
+void asyncer_start(struct asyncer_t *asyncer);
+
+void asyncer_shutdown(struct asyncer_t *asyncer);
+
+void asyncer_enqueue();
+
+void asyncer_clear();
+
+
+
+//
+// Created by ckb on 2018/6/18.
+//
+
+#include <stdlib.h>
+#include "ys_asyncer.h"
+
+struct asyncer_t *asyncer_init() {
+    struct asyncer_t *ret = malloc(sizeof(struct asyncer_t *));
+    ret->done = false;
+    ret->mutex = malloc(sizeof(pthread_mutex_t *));
+    ret->cond = malloc(sizeof(pthread_cond_t *));
+    pthread_mutex_init(ret->mutex, NULL);
+    pthread_cond_init(ret->cond, NULL);
+    return ret;
+}
+
+void *asd(struct asyncer_t *asyncer) {
+
+    while (!asyncer->done && (action = queue.poll()) == null) {
+        pthread_cond_wait(asyncer->cond, asyncer->mutex);
+    }
+    return action;
+}
+
+void *start_loop(void *arg) {
+    struct asyncer_t *asyncer = arg;
+    while (!asyncer->done && asyncer->pid == pthread_self()) {
+        void *action = asd(asyncer);
+        if (action != NULL) {
+            pthread_mutex_lock(asyncer->mutex);
+            //DO SOMETHING
+            pthread_mutex_unlock(asyncer->mutex);
+        }
+    }
+    //DONE
+    while (!queue.isEmpty()) {
+        Action action = queue.remove();
+        if (action != null) {
+            action.execute();
+        }
+    }
+    //queue clear
+    queue.clear();
+}
+
+void asyncer_start(struct asyncer_t *asyncer) {
+    pthread_create(&asyncer->pid, NULL, start_loop, asyncer);
+}
+
+void asyncer_shutdown(struct asyncer_t *asyncer) {
+
+}
+
+void asyncer_enqueue(void * action) {
+
+}
+
+void asyncer_clear() {
+
+}
